@@ -1,0 +1,42 @@
+https://script.google.com/macros/s/AKfycbz2fawr4-obQcb9h5k9q6WjfSAV_42qaafH5YNL648Dte1bhw2ZxDwxiBdW0aOg7chE0g/exec
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form ke Google Sheets</title>
+</head>
+<body>
+  <h2>Form Sederhana</h2>
+  <form id="myForm">
+    <input type="text" name="name" placeholder="Nama" required><br><br>
+    <input type="email" name="email" placeholder="Email" required><br><br>
+    <textarea name="message" placeholder="Pesan" required></textarea><br><br>
+    <button type="submit">Kirim</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('myForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value
+      };
+
+      fetch('https://script.google.com/macros/s/AKfycbz2fawr4-obQcb9h5k9q6WjfSAV_42qaafH5YNL648Dte1bhw2ZxDwxiBdW0aOg7chE0g/exec', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(response => response.json())
+      .then(result => {
+        alert("Data berhasil dikirim!");
+        form.reset();
+      })
+      .catch(error => alert("Gagal mengirim data: " + error));
+    });
+  </script>
+</body>
+</html>
