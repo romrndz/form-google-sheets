@@ -1,37 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Form Nama</title>
 </head>
 <body>
   <h2>Form Input Nama</h2>
-  <form id="namaForm">
+  
+  <!-- Form langsung submit ke Web App -->
+  <form action="PASTE_URL_WEB_APP_ANDA" method="post">
     <label>Nama:</label>
     <input type="text" name="nama" required>
     <button type="submit">Kirim</button>
   </form>
-
-  <p id="status"></p>
-
-  <script>
-    const form = document.getElementById("namaForm");
-    const status = document.getElementById("status");
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwbdFsgVB3LusiPKDT-CkzwrDEvHGUGgp7YR6TSNcxV2GKV7jqLlXCH5R7mdVqb0r8hZw/exec"; // ganti dengan URL Apps Script
-
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      const formData = new FormData(form);
-
-      fetch(scriptURL, { method: "POST", body: formData })
-        .then(response => response.text())
-        .then(text => {
-          status.textContent = text;
-          form.reset();
-        })
-        .catch(err => {
-          status.textContent = "Terjadi kesalahan: " + err;
-        });
-    });
-  </script>
+  
+  <p>Setelah submit, halaman akan redirect ke pesan balasan dari Google Script.</p>
 </body>
 </html>
