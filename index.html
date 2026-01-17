@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Form Nama</title>
-</head>
-<body>
-  <h2>Form Input Nama</h2>
-  
-  <!-- Form langsung submit ke Web App -->
-  <form action="https://script.google.com/macros/s/AKfycbwbdFsgVB3LusiPKDT-CkzwrDEvHGUGgp7YR6TSNcxV2GKV7jqLlXCH5R7mdVqb0r8hZw/exec" method="post">
-    <label>Nama:</label>
-    <input type="text" name="nama" required>
-    <button type="submit">Kirim</button>
-  </form>
-  
-  <p>Setelah submit, halaman akan redirect ke pesan balasan dari Google Script.</p>
-</body>
-</html>
-
+<form 
+  method="POST" 
+  action="https://script.google.com/macros/s/AKfycbwbdFsgVB3LusiPKDT-CkzwrDEvHGUGgp7YR6TSNcxV2GKV7jqLlXCH5R7mdVqb0r8hZw/exec"
+>
+  <input name="Email" type="email" placeholder="Email" required>
+  <input name="Name" type="text" placeholder="Name" required>
+  <button type="submit">Send</button>
+</form>
